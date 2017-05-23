@@ -1,0 +1,53 @@
+
+<div id="header" >
+<div id="header2">
+	<div >
+	<!--<a href="index-apfyt.html" class="logo"><img src="images/logo-top.png" height=60 alt=""></a>
+	<ul id="navigation"> -->
+	<ul id="navigation">
+		
+		<li>
+			<a href="{% url 'contact' %}">
+			{% if request.resolver_match.url_name == 'contact'  %}
+				| Contact |
+			{% else %}
+			 Contact 
+			{% endif %}</a>
+		</li>
+		<li>
+			<a href="{% url 'about' %}">
+			{% if request.resolver_match.url_name == 'about'  %} | About |
+			{% else %}
+			  About  
+			{% endif %}</a>
+		</li>
+		<li class="selected">
+			<a href="{% url 'home' %}">
+			{% if request.resolver_match.url_name == 'home'  %} | Home |{% else %}  Home   
+			{% endif %}</a>
+		</li>
+	</ul>
+	</div>
+	</div>
+	</div>
+	<div id="login-createAccount">
+	<div>
+	<ul>
+        {% if request.user.is_authenticated %}
+        	{% if request.user.companyapfytmanager %}
+			<li><a href="{% url 'company_profile' %}">Company Profile</a></li>
+        	{% endif %}
+			<li><a href="{% url 'account_logout' %}">Log out</a></li>
+        	<li>Logged in as {{ request.user }} </li>
+		{% else %}
+		<li class="login" id="login">
+			<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+		</li>
+		<li class="signup">
+			<a href="{% url 'account_signup' %}">Sign up</a>
+		</li>
+		{% endif %}
+	</ul>
+
+	</div>
+</div>

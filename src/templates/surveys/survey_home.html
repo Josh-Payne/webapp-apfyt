@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head_title %}Survey | {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<div ng-app="survey">
+<div class="container">
+<ng-view></ng-view>
+</div>
+</div>
+
+{% endblock %}
+
+
